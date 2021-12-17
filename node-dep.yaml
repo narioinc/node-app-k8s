@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webdemo
+  labels:
+    app: webdemo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webdemo
+  template:
+    metadata:
+      labels:
+        app: webdemo
+    spec:
+      containers:
+      - name: webdemo
+        image: narioinc89/node-web-app
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8081
